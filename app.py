@@ -37,3 +37,19 @@ fig = px.histogram(
     )
 
 st.write(fig)
+
+fig = px.scatter(
+    df,
+    x = 'price',
+    y = 'model_year',
+    labels = {
+        'price':'Price',
+        'model_year':'Model Year',
+        'manufacturer':'Manufacturer'
+    },
+    color = 'manufacturer',
+    title = 'Vehicle Price vs. Model Year by Manufacturer',
+    opacity = 0.66
+)
+
+st.write(fig)
