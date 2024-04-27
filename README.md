@@ -1,4 +1,4 @@
-# An Analysis of Vehicles on sale in the US
+# An Analysis of Vehicles on Sale in the US
 URL for web application can be found at:
 https://tripletensprint4-kehl.onrender.com/
 
