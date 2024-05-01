@@ -11,6 +11,9 @@ Read in and enrich DataFrame, as explained in EDA.ipynb
 
 df = pd.read_csv("vehicles_us.csv")
 df['is_4wd'] = df['is_4wd'] == 1.0 # Convert integer to boolean values
+df['model_year'] = df['model_year'].fillna(df.groupby('model')['model_year'].transform('median')) # Replace missing values
+df['cylinders'] = df['cylinders'].fillna(df.groupby('model')['cylinders'].transform('median')) # Replace missing values
+df['odometer'] = df['odometer'].fillna(df.groupby(['model', 'model_year'])['odometer'].transform('median')) # Replace missing values
 df['model'] = df['model'].apply(lambda x: x.title()) # Convert Model to Title Case
 df['manufacturer'] = df['model'].apply(lambda x: x.split()[0]) # Isolate first word of model to find manufacturer
 df_price_filtered = df[ df['price'] != 1 ].copy() # Remove prices which are set to 1
